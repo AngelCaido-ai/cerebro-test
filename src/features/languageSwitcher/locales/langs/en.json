@@ -1,0 +1,11 @@
+{
+  "select-language": "Select language",
+  "enter-coin-name": "Enter coin name...",
+  "coin-not-found": "Coin not found",
+  "buy": "Buy",
+  "buying-a-coin": "Buying a coin",
+  "price-in-cents": "Price in cents -",
+  "some-error": "Some error!",
+  "the-coin-is-bought": "The coin is bought!",
+  "loading": "Loading..."
+}

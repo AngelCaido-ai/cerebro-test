@@ -1,0 +1,11 @@
+{
+  "select-language": "Выберите язык",
+  "enter-coin-name": "Введите название монеты...",
+  "coin-not-found": "Монета не найдена",
+  "buy": "Купить",
+  "buying-a-coin": "Покупка монеты",
+  "price-in-cents": "Цена в центах -",
+  "some-error": "Какая-то ошибка!",
+  "the-coin-is-bought": "Монета куплена!",
+  "loading": "Загрузка..."
+}
