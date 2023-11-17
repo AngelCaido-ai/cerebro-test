@@ -2,7 +2,6 @@ import {useMemo} from 'react'
 import {CoinsList} from "./widgets/CoinsList/ui";
 import {useCoinsList} from "./widgets/CoinsList/hooks";
 import {Header} from "./widgets/Header/ui";
-import {Pagination} from "./shared/ui";
 import {coinsData} from "./widgets/CoinsList/mock/coins.data.ts";
 import {Coin} from "@/entities/Coin/types";
 
@@ -20,13 +19,7 @@ function App() {
         setPage={setPage}
         page={state.page}
         title={state.title}
-      />
-      <Pagination
-        isLoading={isLoading}
-        itemsCount={coins.length}
-        pageNum={state.page}
-        onPageChange={setPage}
-        itemsOnPage={state.limit}
+        limit={state.limit}
       />
     </>
   )

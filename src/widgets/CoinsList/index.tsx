@@ -4,6 +4,7 @@ import {CoinItem} from "../../entities/Coin/ui";
 import {ModalProvider} from "react-simple-modal-provider";
 import {BuyCoinModal} from "../../features/buyCoin/ui";
 import {useTranslation} from "react-i18next";
+import {Pagination} from "../../shared/ui";
 
 interface Props {
   page: number,
@@ -23,7 +24,7 @@ function searchByName(array: any[], searchTerm = "") {
 }
 
 
-export const CoinsList = ({coins, page, limit = 5, isLoading = false, title}: Props) => {
+export const CoinsList = ({coins, page, limit = 5, isLoading = false, title, setPage}: Props) => {
   const { t } = useTranslation();
 
   const foundItems = useMemo(() => searchByName(coins, title), [page, coins, title])
@@ -38,7 +39,7 @@ export const CoinsList = ({coins, page, limit = 5, isLoading = false, title}: Pr
     )
   }
 
-  if(!coins || coins.length === 0) {
+  if(items.length === 0) {
     return (
       <div className="my-auto text-center">
         {t("coin-not-found")}
@@ -53,6 +54,13 @@ export const CoinsList = ({coins, page, limit = 5, isLoading = false, title}: Pr
           <CoinItem key={coin.id} {...coin}/>
         ))}
       </div>
+      <Pagination
+        isLoading={isLoading}
+        itemsCount={foundItems.length}
+        pageNum={page}
+        onPageChange={setPage}
+        itemsOnPage={limit}
+      />
     </ModalProvider>
   );
 };
