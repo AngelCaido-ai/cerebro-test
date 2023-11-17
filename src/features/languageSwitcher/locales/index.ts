@@ -13,7 +13,7 @@ const resources = {
   },
 };
 
-i18n
+await i18n
   .use(initReactI18next)
   .init({
     resources,
@@ -24,8 +24,8 @@ i18n
     },
   });
 
-export const changeLanguage = (lng: "ru" | "en") => {
-  i18n.changeLanguage(lng);
+export const changeLanguage = async (lng: "ru" | "en" | string) => {
+  await i18n.changeLanguage(lng);
 };
 
 export default i18n;

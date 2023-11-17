@@ -5,11 +5,11 @@ import {BalanceResponse} from "../types";
 
 export const useBalance = () => {
 
-  const getBalance = () => {
+  const getBalance = (): Promise<BalanceResponse> => {
     return request.get("/get-balance");
   };
 
-  return useQuery<BalanceResponse>({
+  return useQuery({
       queryKey: ["balance"],
       queryFn: getBalance,
       select: (data) => data.data.balance

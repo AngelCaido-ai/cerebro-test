@@ -1,4 +1,5 @@
 import {useQuery} from "@tanstack/react-query";
+import {request} from "../../../shared/services";
 
 export const useCoinPrice = (id: number) => {
 

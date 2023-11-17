@@ -1,6 +1,4 @@
-import {useCoinsList} from "./hooks";
-import {Pagination} from "../../shared/ui";
-import {Dispatch, SetStateAction, useMemo} from "react";
+import {Dispatch, useMemo} from "react";
 import {Coin} from "../../entities/Coin/types";
 import {CoinItem} from "../../entities/Coin/ui";
 import {ModalProvider} from "react-simple-modal-provider";
@@ -16,7 +14,7 @@ interface Props {
   title: string
 }
 
-function searchByName(array, searchTerm = "") {
+function searchByName(array: any[], searchTerm = "") {
   searchTerm = searchTerm.toLowerCase();
 
   return array.filter((product) => {
@@ -25,11 +23,11 @@ function searchByName(array, searchTerm = "") {
 }
 
 
-export const CoinsList = ({coins, setPage, page, limit = 5, isLoading = false, title}: Props) => {
+export const CoinsList = ({coins, page, limit = 5, isLoading = false, title}: Props) => {
   const { t } = useTranslation();
 
-  const findedItems = useMemo(() => searchByName(coins, title), [page, coins, title])
-  const items = useMemo(() => findedItems.slice(page * limit - 5, limit * page), [page, limit, title])
+  const foundItems = useMemo(() => searchByName(coins, title), [page, coins, title])
+  const items = useMemo(() => foundItems.slice(page * limit - 5, limit * page), [page, limit, title])
 
 
   if(isLoading) {

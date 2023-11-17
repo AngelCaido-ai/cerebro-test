@@ -1,13 +1,13 @@
-import React from 'react';
 import {useTranslation} from "react-i18next";
 import {changeLanguage} from "../../locales";
+import {ChangeEvent} from "react";
 
 export const LanguageSwitcher = () => {
   const { t } = useTranslation();
 
-  const handleChangeLanguage = (event) => {
+  const handleChangeLanguage = async (event: ChangeEvent<HTMLSelectElement>) => {
     const selectedLanguage = event.target.value;
-    changeLanguage(selectedLanguage);
+    await changeLanguage(selectedLanguage);
   };
 
   return (

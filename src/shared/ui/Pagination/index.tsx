@@ -1,28 +1,26 @@
-import { Dispatch, SetStateAction } from "react";
+import {Dispatch, SetStateAction} from "react";
 import ReactPaginate from "react-paginate";
 
 interface Props {
   pageNum: number;
-  className?: string;
   onPageChange: (pageNum: number) => void | Dispatch<SetStateAction<number>>;
   page_count?: number;
   itemsOnPage: number;
   isLoading?: boolean;
-  items: any[];
+  itemsCount: number;
 }
 
 export const Pagination = ({
-  pageNum,
-  className,
-  onPageChange,
-  itemsOnPage,
-  page_count = 4,
-  isLoading = false,
-  items = [],
-}: Props) => {
+                             pageNum,
+                             onPageChange,
+                             itemsOnPage,
+                             isLoading = false,
+                             itemsCount,
+                           }: Props) => {
 
+  const pagesCount = itemsCount > 0 ? Math.ceil(itemsCount / itemsOnPage) : 1;
 
-  if (isLoading || items.length && page_count > 1) {
+  if (isLoading || itemsCount <= itemsOnPage) {
     return null;
   }
 
@@ -39,7 +37,7 @@ export const Pagination = ({
       nextClassName="font-extrabold ml-[18px]"
       pageRangeDisplayed={3}
       marginPagesDisplayed={1}
-      pageCount={page_count}
+      pageCount={pagesCount}
       previousLabel="<"
     />
   );

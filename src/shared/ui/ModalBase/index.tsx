@@ -1,4 +1,4 @@
-import {Dispatch, SetStateAction, useCallback} from "react";
+import {Dispatch, SetStateAction} from "react";
 import {FC, ReactNode} from "react";
 import Modal from "react-simple-modal-provider";
 import {CloseModalIcon} from "../Icons/CloseModalIcon.tsx";
@@ -16,7 +16,6 @@ export const ModalBase: FC<Props> = ({
                                          children,
                                          id,
                                          content,
-                                         containerClassName,
                                          isOpen,
                                          setOpen,
                                        }) => {
